@@ -24,5 +24,323 @@
     <link rel="stylesheet" href="style.css" />
     <script src="main.js" defer></script>
   </head>
-  <body></body>
+  <body>
+    <!-- Navbar -->
+    <nav id="navbar">
+      <div class="navbar__logo">
+        <i class="fas fa-star"></i>
+        <a href="#">Roxy</a>
+      </div>
+      <ul class="navbar__menu">
+        <li class="navbar__menu__item">Home</li>
+        <li class="navbar__menu__item">About</li>
+        <li class="navbar__menu__item">Skills</li>
+        <li class="navbar__menu__item">My Work</li>
+        <li class="navbar__menu__item">Testimonials</li>
+        <li class="navbar__menu__item">Contact</li>
+      </ul>
+    </nav>
+
+    <!-- Home -->
+    <section id="home">
+      <img
+        src="imgs/myprofile.jpg"
+        alt="Roxy's profile photo"
+        class="home__avatar"
+      />
+      <h1 class="home__title">
+        Hello, <br />
+        I'm Twinkle Coder
+      </h1>
+      <h2 class="home__description">
+        A Frontend developer who is familiar with English.
+      </h2>
+      <button class="home__contact">Contact Me</button>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+      <h1>About me</h1>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa sit
+        reiciendis exercitationem, debitis quia asperiores aliquid accusamus
+        eius nam magni maxime odit ipsam perferendis nobis praesentium
+        voluptatibus sed quisquam harum.
+      </p>
+      <div class="about__majors">
+        <div class="major">
+          <div class="major__icon">
+            <i class="fab fa-html5"></i>
+          </div>
+          <div class="major__title">HTML</div>
+          <div class="major__description">
+            HTML5, 빠른 마크업, 시멘틱 태그, 접근성
+          </div>
+        </div>
+        <div class="major">
+          <div class="major__icon">
+            <i class="fab fa-css3"></i>
+          </div>
+          <div class="major__title">CSS</div>
+          <div class="major__description">Flexbox, Grid, BEM 규칙</div>
+        </div>
+        <div class="major">
+          <div class="major__icon">
+            <i class="fab fa-js-square"></i>
+          </div>
+          <div class="major__title">JavaScript</div>
+          <div class="major__description">ES6문법, DOM APIs, Web APIs 등등</div>
+        </div>
+      </div>
+      <div class="about__learn">
+        <div class="learn">
+          <img src="imgs/nomadcoder.png" alt="nomadcoder" class="learn__logo" />
+          <p class="learn__name">NomadCoder</p>
+          <p class="learn__period">2021 Aug - Until now</p>
+        </div>
+        <div class="learn">
+          <img
+            src="imgs/DreamCoding.png"
+            alt="dreamcoding"
+            class="learn__logo"
+          />
+          <p class="learn__name">DreamCoding</p>
+          <p class="learn__period">2022 Jan - Untill now</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+      <h1>Skills</h1>
+      <h2>Skills & Attributes</h2>
+      <p>
+        Passion for learning new technologies. Capable of working withing a team
+        environment and independently. Ability to plan and time schedule, work
+        under strict time pressure and adapt zuickly when needed.
+      </p>
+      <div class="skillset">
+        <div class="skillset__left">
+          <h3 class="skillset__title">Skills</h3>
+          <div class="skill">
+            <div class="skill__description">
+              <span>HTML</span>
+              <span>99%</span>
+            </div>
+            <div class="skill__bar">
+              <div class="skill__value"></div>
+            </div>
+          </div>
+          <div class="skill">
+            <div class="skill__description">
+              <span>CSS</span>
+              <span>80%</span>
+            </div>
+            <div class="skill__bar">
+              <div class="skill__value"></div>
+            </div>
+          </div>
+          <div class="skill">
+            <div class="skill__description">
+              <span>JavaScript</span>
+              <span>80%</span>
+            </div>
+            <div class="skill__bar">
+              <div class="skill__value"></div>
+            </div>
+          </div>
+          <div class="skill">
+            <div class="skill__description">
+              <span>React</span>
+              <span>60%</span>
+            </div>
+            <div class="skill__bar">
+              <div class="skill__value"></div>
+            </div>
+          </div>
+          <div class="skill">
+            <div class="skill__description">
+              <span>Node.js</span>
+              <span>60%</span>
+            </div>
+            <div class="skill__bar">
+              <div class="skill__value"></div>
+            </div>
+          </div>
+        </div>
+        <div class="skillset__right">
+          <div class="tools">
+            <h3 class="skillset__title">Tools</h3>
+            <ul class="tools__list">
+              <li><span>Visual Studio Code</span></li>
+              <li><span>Figma</span></li>
+              <li><span>Chrome Devtools</span></li>
+              <li><span>Sandbox</span></li>
+            </ul>
+          </div>
+          <div class="etc">
+            <h3 class="skillset__title">ETC</h3>
+            <ul class="etc__list">
+              <li><span>Git</span></li>
+              <li><span>Notion</span></li>
+              <li><span>English</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Work -->
+    <section id="work">
+      <h1>My work</h1>
+      <h3>Projects</h3>
+      <div class="work__categories">
+        <button class="category__btn">
+          All<span class="category__count">5</span>
+        </button>
+        <button class="category__btn">
+          JavaScript<span class="category__count">5</span>
+        </button>
+        <button class="category__btn">
+          React<span class="category__count">0</span>
+        </button>
+      </div>
+
+      <div class="work__projects">
+        <a
+          href="https://github.com/Roxy100/kokoa-clone"
+          class="project"
+          target="blank"
+        >
+          <img
+            class="project__img"
+            src="imgs/projects/project1.png"
+            alt="kokoa-clone"
+          />
+          <div class="project__description">
+            <h3>KoKoa Talk</h3>
+            <span>Clone coding with HTML and CSS</span>
+          </div>
+        </a>
+        <a
+          href="https://github.com/Roxy100/chrome-app-clone"
+          class="project"
+          target="blank"
+        >
+          <img
+            class="project__img"
+            src="imgs/projects/project2.png"
+            alt="chrome-app-clone"
+          />
+          <div class="project__description">
+            <h3>Chrome App Clone</h3>
+            <span>Clone coding with JavaScript</span>
+          </div>
+        </a>
+        <a
+          href="https://github.com/Roxy100/wetube-reloaded"
+          class="project"
+          target="blank"
+        >
+          <img
+            class="project__img"
+            src="imgs/projects/project3.png"
+            alt="wetube-reloaded"
+          />
+          <div class="project__description">
+            <h3>LSGTube</h3>
+            <span>Clone coding with NodeJS, Express, Mongo and ES6</span>
+          </div>
+        </a>
+        <a
+          href="https://github.com/Roxy100/shopping-mall-minigame"
+          class="project"
+          target="blank"
+        >
+          <img
+            class="project__img"
+            src="imgs/projects/project4.png"
+            alt="shopping-mall-minigame"
+          />
+          <div class="project__description">
+            <h3>Shopping Mall Minigame</h3>
+            <span>Clone coding with HTML,CSS and JavaScript</span>
+          </div>
+        </a>
+        <a
+          href="https://github.com/Roxy100/zoom-clone"
+          class="project"
+          target="blank"
+        >
+          <img
+            class="project__img"
+            src="imgs/projects/project5.png"
+            alt="zoom-clone"
+          />
+          <div class="project__description">
+            <h3>Roxy's Room Chat</h3>
+            <span>Clone coding with NodeJS, WebRTC ,and WebSockets</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials">
+      <h1>Testimonials</h1>
+      <h3>See what they say about me</h3>
+      <div class="testimonials">
+        <div class="testimonial">
+          <img
+            src="imgs/testimonials/people1.jpg"
+            alt="People"
+            class="testimonial__avatar"
+          />
+          <div class="testimonial__speech-bubble">
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+              Perferendis nesciunt possimus excepturi saepe amet exercitationem
+              numquam iure! Incidunt dolorum, perspiciatis ex quasi dolores
+              temporibus enim? Fugiat, praesentium. Cum, enim voluptatibus!
+            </p>
+            <p class="name"><a href="">Roxy</a> / Paypal</p>
+          </div>
+        </div>
+        <div class="testimonial">
+          <img
+            src="imgs/testimonials/people1.jpg"
+            alt="People"
+            class="testimonial__avatar"
+          />
+          <div class="testimonial__speech-bubble">
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+              Perferendis nesciunt possimus excepturi saepe amet exercitationem
+              numquam iure! Incidunt dolorum, perspiciatis ex quasi dolores
+              temporibus enim? Fugiat, praesentium. Cum, enim voluptatibus!
+            </p>
+            <p class="name"><a href="">Roxy</a> / Paypal</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <h1 class="contact__title">Let's talk</h1>
+      <h2 class="contact__email">yimji9@naver.com</h2>
+      <div class="contact__links">
+        <a href="https://github.com/Roxy100" target="_blank">
+          <i class="fab fa-github"></i>
+        </a>
+        <a
+          href="https://www.linkedin.com/in/jiyoung-yim-bb26611a0/"
+          target="_blank"
+        >
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </div>
+      <p class="contact__rights">2022 Roxy - All rights reserved</p>
+    </section>
+  </body>
 </html>
