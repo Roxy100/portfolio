@@ -29,6 +29,14 @@ homeContactBtn.addEventListener("click", () => {
   scrollIntoView("#contact");
 });
 
+// Make home slowly fade to transparent as the window scrolls down
+const home = document.querySelector(".home__container");
+const homeHeight = home.getBoundingClientRect().height;
+
+document.addEventListener("scroll", () => {
+  home.style.opacity = 1 - window.scrollY / homeHeight;
+});
+
 // selector마다 같은 실행을 할 수 있도록 묶기.
 function scrollIntoView(selector) {
   const scrollToSection = document.querySelector(selector);
