@@ -52,6 +52,30 @@ arrowUp.addEventListener("click", () => {
   scrollIntoView("#home");
 });
 
+// Projects filtering
+const workBtnContainer = document.querySelector(".work__categories");
+const projectContainer = document.querySelector(".work__projects");
+const projects = document.querySelectorAll(".project");
+
+workBtnContainer.addEventListener("click", (e) => {
+  const filter = e.target.dataset.filter || e.target.parentNode.dataset.filter;
+  if (filter == null) {
+    return;
+  }
+  // Projects animation
+  projectContainer.classList.add("anim-out");
+  setTimeout(() => {
+    projects.forEach((project) => {
+      if (filter === "*" || filter === project.dataset.type) {
+        project.classList.remove("invisible");
+      } else {
+        project.classList.add("invisible");
+      }
+    });
+    projectContainer.classList.remove("anim-out");
+  }, 300);
+});
+
 // selector마다 같은 실행을 할 수 있도록 묶기.
 function scrollIntoView(selector) {
   const scrollToSection = document.querySelector(selector);
