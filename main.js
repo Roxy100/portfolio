@@ -62,6 +62,14 @@ workBtnContainer.addEventListener("click", (e) => {
   if (filter == null) {
     return;
   }
+  // Remove selection from the previous item and select the new one
+  const active = document.querySelector(".category__btn.selected");
+  active.classList.remove("selected");
+  // 클릭된 target의 nodeName(이름)이 "BUTTON"이면, e.target(category__btn)을 쓰고, 아니면, e.target.parentNode(category__count인 span)을 쓴다는 가정하에
+  const target =
+    e.target.nodeName === "BUTTON" ? e.target : e.target.parentNode;
+  target.classList.add("selected");
+
   // Projects animation
   projectContainer.classList.add("anim-out");
   setTimeout(() => {
