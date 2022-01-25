@@ -91,8 +91,79 @@ workBtnContainer.addEventListener("click", (e) => {
   }, 300);
 });
 
+// < 스크롤 시 메뉴 활성화하기 >
+
+// 1. 모든 섹션 요소들과 메뉴 아이템들을 가지고 온다.
+const sectionIds = [
+  "#home",
+  "#about",
+  "#skills",
+  "#work",
+  "#testimonials",
+  "#contact",
+];
+
+const sections = sectionIds.map((id) => document.querySelector(id));
+const navItems = sectionIds.map((id) =>
+  document.querySelector(`[data-link="${id}"]`)
+);
+
+// 2. IntersectionObserver를 이용해서 모든 섹션들을 관찰한다.
+
+let selectedNavIndex = 0; // 현재 선택된 메뉴 인덱스 설정
+let selectedNavItem = navItems[0]; // 현재 선택된 첫번재 메뉴 아이템 설정
+
+// 새로운 메뉴 아이템을 선택할 때마다 이전에 활성화된 아이를 지워주고, 다시 새롭게 할당하고 나서 active를 지정함.
+function selectNavItem(selected) {
+  selectedNavItem.classList.remove("active");
+  selectedNavItem = selected;
+  selectedNavItem.classList.add("active");
+}
+
 // selector마다 같은 실행을 할 수 있도록 묶기.
 function scrollIntoView(selector) {
   const scrollToSection = document.querySelector(selector);
   scrollToSection.scrollIntoView({ behavior: "smooth" });
+  selectNavItem(navItems[sectionIds.indexOf(selector)]); // Contact me, Arrow-up버튼 클릭시 활성화 처리.
 }
+
+const observerOptions = {
+  root: null,
+  rootMargin: "0px",
+  threshold: 0.3,
+};
+
+// 3, 보여지는 섹션에 해당하는 메뉴 아이템을 활성화 시킨다.
+const observerCallback = (entries, observer) => {
+  entries.forEach((entry) => {
+    // 만약, 빠져나갈 때, + intersectionRatio가 0이상이어야 할 때,
+    if (!entry.isIntersecting && entry.intersectionRatio > 0) {
+      const index = sectionIds.indexOf(`#${entry.target.id}`);
+      // 섹션의 방향 설정
+      // entry.boundClientRect.y가 (-) : 스크롤링이 아래로 되어서 페이지가 올라옴
+      if (entry.boundingClientRect.y < 0) {
+        selectedNavIndex = index + 1; // 위에 있는 섹션이 위로 빠져나가는 경우, y값이 (-)
+      } else {
+        selectedNavIndex = index - 1; // 아래에 있는 섹션이 밑으로 빠져나가는 경우, y값이 (+)
+      }
+    }
+  });
+};
+
+const observer = new IntersectionObserver(observerCallback, observerOptions);
+sections.forEach((section) => observer.observe(section));
+
+// 4. 스크롤링이 될 때마다 해당하는 메뉴를 선택한다.
+// 브라우저에서 모든 스크롤이 해당하는 이벤트는 'scroll'이지만, (메뉴 클릭했을 때 이용)
+// 사용자가 스스로 스크롤링 할 때, 'wheel' 이벤트 사용. (마우스나 트랙패드 이용)
+window.addEventListener("wheel", () => {
+  if (window.scrollY === 0) {
+    selectedNavIndex = 0; // 제일 위에 위치.
+  } else if (
+    Math.round(window.scrollY + window.innerHeight) >=
+    document.body.scrollHeight
+  ) {
+    selectedNavIndex = navItems.length - 1; // 제일 아래에 위치.
+  }
+  selectNavItem(navItems[selectedNavIndex]); // 중간에 위치.
+});
